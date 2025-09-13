@@ -52,3 +52,5 @@ pids
 *.seed
 *.pid.lock
 
+
+/generated/prisma
