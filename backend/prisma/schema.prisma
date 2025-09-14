@@ -187,17 +187,33 @@ model Tag {
 
 // Banner and Category models
 model Banner {
-  id            String  @id @default(uuid())
-  bannerImage   Image?  @relation(fields: [bannerImageId], references: [id])
-  bannerImageId String? @unique
+  id            String   @id @default(uuid())
+  title         String
+  description   String
+  url           String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  validityDays  Int      @default(0)
+  expiresAt     DateTime
+  bannerImage   Image?   @relation(fields: [bannerImageId], references: [id])
+  bannerImageId String?  @unique
 }
 
 model Category {
-  id              String  @id @default(uuid())
+  id            String        @id @default(uuid())
+  name          String
+  url           String
+  subCategories SubCategory[]
+}
+
+model SubCategory {
+  id              String   @id @default(uuid())
   name            String
   url             String
-  categoryImage   Image?  @relation(fields: [categoryImageId], references: [id])
-  categoryImageId String? @unique
+  category        Category @relation(fields: [categoryId], references: [id])
+  categoryId      String
+  categoryImage   Image?   @relation(fields: [categoryImageId], references: [id])
+  categoryImageId String?  @unique
 }
 
 // Comment model
@@ -296,16 +312,16 @@ model Address {
 }
 
 model Image {
-  id        String    @id @default(uuid())
-  pathname  String
-  url       String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  user      User?
-  banner    Banner?
-  category  Category?
-  deal      Deal?     @relation(fields: [dealId], references: [id])
-  dealId    String
+  id          String       @id @default(uuid())
+  pathname    String
+  url         String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  user        User?
+  banner      Banner?
+  subCategory SubCategory?
+  deal        Deal?        @relation(fields: [dealId], references: [id])
+  dealId      String
 }
 
 model Price {
