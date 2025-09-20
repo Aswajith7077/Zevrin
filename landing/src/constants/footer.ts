@@ -1,6 +1,5 @@
 import { FooterContentType } from "@/types/footer.type";
 
-
 const contents: FooterContentType[] = [
   {
     title: "Quick Links",

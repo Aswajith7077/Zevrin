@@ -1,12 +1,11 @@
+import Pricing from "@/components/pricing/pricing";
 
+const SubscriptionsPage = () => {
+  return (
+    <div className="min-h-screen">
+      <Pricing />
+    </div>
+  );
+};
 
-import ElectricBorderCard from "@/components/animations/pricingCard";
-
-
-const Page = () => {
-    return <div>
-        <ElectricBorderCard />
-    </div>;
-}
-
-export default Page;
+export default SubscriptionsPage;

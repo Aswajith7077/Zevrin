@@ -79,7 +79,9 @@
 }
 
 .dark {
-  --background: oklch(0.098 0.042 264.695); /* Darker background (equivalent to slate-950) */
+  --background: oklch(
+    0.098 0.042 264.695
+  ); /* Darker background (equivalent to slate-950) */
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.129 0.042 264.695); /* Slightly darker cards */
   --card-foreground: oklch(0.984 0.003 247.858);

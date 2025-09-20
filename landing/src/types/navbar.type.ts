@@ -1,4 +1,4 @@
-import { JSX } from 'react';
+import { JSX } from "react";
 
 type SubcontentType = {
   title: string;
@@ -9,7 +9,7 @@ type SubcontentType = {
 
 type ContentType = {
   title: string;
-  type: 'single_image_column' | 'double_column';
+  type: "single_image_column" | "double_column";
   subcontents: SubcontentType[];
 };
 

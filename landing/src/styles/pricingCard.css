@@ -4,7 +4,9 @@
 :root {
   --electric-border-color: #c0c0c0;
   --electric-light-color: oklch(from var(--electric-border-color) l c h);
-  --gradient-color: oklch(from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4);
+  --gradient-color: oklch(
+    from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4
+  );
   --color-neutral-900: oklch(0.185 0 0);
   --silver-bright: #e8e8e8;
   --silver-medium: #a8a8a8;
@@ -18,7 +20,10 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
   background-color: oklch(0.145 0 0);
   color: oklch(0.985 0 0);
   height: 100vh;
@@ -44,8 +49,18 @@ body {
   padding: 2px;
   border-radius: 24px;
   position: relative;
-  background: linear-gradient(-30deg, var(--gradient-color), transparent, var(--gradient-color)),
-    linear-gradient(to bottom, var(--color-neutral-900), var(--color-neutral-900));
+  background:
+    linear-gradient(
+      -30deg,
+      var(--gradient-color),
+      transparent,
+      var(--gradient-color)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-neutral-900),
+      var(--color-neutral-900)
+    );
 }
 
 /* Inner container */
@@ -112,7 +127,13 @@ body {
   mix-blend-mode: overlay;
   transform: scale(1.1);
   filter: blur(16px);
-  background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+  background: linear-gradient(
+    -30deg,
+    white,
+    transparent 30%,
+    transparent 70%,
+    white
+  );
 }
 
 .overlay-2 {
@@ -128,7 +149,13 @@ body {
   mix-blend-mode: overlay;
   transform: scale(1.1);
   filter: blur(16px);
-  background: linear-gradient(-30deg, white, transparent 30%, transparent 70%, white);
+  background: linear-gradient(
+    -30deg,
+    white,
+    transparent 30%,
+    transparent 70%,
+    white
+  );
 }
 
 /* Background glow */
@@ -145,7 +172,12 @@ body {
   transform: scale(1.1);
   opacity: 0.3;
   z-index: -1;
-  background: linear-gradient(-30deg, var(--silver-bright), transparent, var(--electric-border-color));
+  background: linear-gradient(
+    -30deg,
+    var(--silver-bright),
+    transparent,
+    var(--electric-border-color)
+  );
 }
 
 /* Content container */
@@ -179,7 +211,12 @@ body {
 
 /* Scrollbar glass component */
 .scrollbar-glass {
-  background: radial-gradient(47.2% 50% at 50.39% 88.37%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
+  background:
+    radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
     rgba(255, 255, 255, 0.04);
   position: relative;
   transition: background 0.3s ease;
@@ -194,7 +231,12 @@ body {
 }
 
 .scrollbar-glass:hover {
-  background: radial-gradient(47.2% 50% at 50.39% 88.37%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
+  background:
+    radial-gradient(
+      47.2% 50% at 50.39% 88.37%,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
     rgba(255, 255, 255, 0.08);
 }
 
@@ -214,7 +256,9 @@ body {
     rgba(255, 255, 255, 0.6) 81.89%
   );
   border-radius: inherit;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   mask-composite: xor;
   -webkit-mask-composite: xor;
   pointer-events: none;
@@ -239,5 +283,10 @@ body {
   background-color: currentColor;
   opacity: 0.1;
   mask-image: linear-gradient(to right, transparent, black, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black,
+    transparent
+  );
 }

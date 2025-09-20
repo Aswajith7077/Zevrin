@@ -12,7 +12,13 @@ const Footer = () => {
       <div className="flex flex-col p-5 md:flex-row justify-center mt-5 space-x-0 md:space-x-8 space-y-4 md:space-y-0">
         <div className="flex flex-col w-[50%] md:w-1/3">
           <div className="flex flex-row px-4 items-center">
-            <Image src={LogoIcon} alt="Zevrin Logo" className="w-12 aspect-square" width={48} height={48} />
+            <Image
+              src={LogoIcon}
+              alt="Zevrin Logo"
+              className="w-12 aspect-square"
+              width={48}
+              height={48}
+            />
             <h2 className="text-2xl px-4 text-left font-semibold">{AppName}</h2>
           </div>
           <p className="text-sm mt-5 px-4 text-left text-gray-400">
@@ -66,28 +72,25 @@ const Footer = () => {
           </div>
         </div> */}
       </div>
-			<div className="flex flex-col items-center justify-center gap-6 py-4 px-4 ">
-            <h2 className="text-lg pr-4 w-full text-center font-semibold">
-              {"Get Updates"}
-            </h2>
-            <p className="font-open-sans text-[14px] text-gray-400">
-              By this you can stay up to date with the latest tech and updates
-              with Zevrin
-            </p>
-            <div className="flex flex-row w-3/4 justify-center items-center gap-5">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="mt-2 px-4 py-2 bg-gray-900 text-gray-400 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <Button
-                className="mt-3 w-1/4 rounded-full px-5"
-                variant={"ghost"}
-              >
-                Subscribe
-              </Button>
-            </div>
-          </div>
+      <div className="flex flex-col items-center justify-center gap-6 py-4 px-4 ">
+        <h2 className="text-lg pr-4 w-full text-center font-semibold">
+          {"Get Updates"}
+        </h2>
+        <p className="font-open-sans text-[14px] text-gray-400">
+          By this you can stay up to date with the latest tech and updates with
+          Zevrin
+        </p>
+        <div className="flex flex-row w-3/4 justify-center items-center gap-5">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            className="mt-2 px-4 py-2 bg-gray-900 text-gray-400 rounded-full border-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <Button className="mt-3 w-1/4 rounded-full px-5" variant={"ghost"}>
+            Subscribe
+          </Button>
+        </div>
+      </div>
       <div className="flex flex-row w-[95%] items-center justify-center pt-7 my-3">
         <p className="text-sm">{"© 2023 Zevrin. All rights reserved."}</p>
       </div>

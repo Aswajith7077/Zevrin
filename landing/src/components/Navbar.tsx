@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,7 +17,7 @@ import { ContentType } from "@/types/navbar.type";
 import { appname as AppName, LogoIcon, navigationURLs } from "@/constants/app";
 
 const getMenuContent = (content: ContentType) => {
-  console.log(content)
+  console.log(content);
   return content.type === "double_column" ? (
     <NavigationMenuContent>
       <ul className="grid w-[400px] gap-3 p-4 md:w-[700px] md:grid-cols-2 lg:w-[700px] ">
@@ -116,7 +115,7 @@ const ListItem = React.forwardRef<
         href={href}
         className={cn(
           "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-          className
+          className,
         )}
         {...props}
       >
@@ -131,24 +130,20 @@ const ListItem = React.forwardRef<
 
 ListItem.displayName = "ListItem";
 
-
 const Navbar = () => {
   return (
-    <div className="flex flex-row items-center border-none justify-between w-full px-[10%] py-10 text-white bg-slate-950 ">
+    <div className="flex flex-row items-center border-none justify-between w-full px-[10%] py-10 relative z-50 pointer-events-auto">
       <div className="flex flex-row items-center gap-3">
-        <Image
-          width={45}
-          height={45}
-          src={LogoIcon}
-          alt="Logo"
-          className=" "
-        />
+        <Image width={45} height={45} src={LogoIcon} alt="Logo" className=" " />
         <h1 className="text-2xl font-bold ">{AppName}</h1>
       </div>
       <NavLinks />
       <div className="flex flex-row gap-4">
         <Link href={navigationURLs.login}>
-          <Button variant="default" className="p-5 px-7 text-[14px] font-semibold rounded-full">
+          <Button
+            variant="default"
+            className="p-5 px-7 text-[14px] font-semibold rounded-full"
+          >
             Try for Free
           </Button>
         </Link>

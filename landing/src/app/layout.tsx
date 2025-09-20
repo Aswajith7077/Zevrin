@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Landing page for " + appname,
 };
 
-const RootLayout = ({children}:{children: React.ReactNode}) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={openSans.className}>
@@ -26,10 +26,10 @@ const RootLayout = ({children}:{children: React.ReactNode}) => {
           enableSystem
           disableTransitionOnChange
         >
-          <main>
-             <Navbar />
-              {children}
-              <Footer />
+          <main className="flex flex-col min-h-screen" id="root">
+            <Navbar />
+            {children}
+            <Footer />
           </main>
         </ThemeProvider>
       </body>
