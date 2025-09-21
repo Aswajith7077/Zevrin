@@ -387,7 +387,6 @@ export default function Pricing() {
             <span
               id={`${id}-on`}
               className="group-data-[state=unchecked]:text-muted-foreground/70 flex-1 cursor-pointer text-left text-sm font-medium"
-              aria-controls={id}
               onClick={() => setIsDealer(true)}
             >
               Dealers
