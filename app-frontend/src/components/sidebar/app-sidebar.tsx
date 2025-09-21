@@ -25,12 +25,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { appname } from "@/constants/app";
 
@@ -49,15 +44,15 @@ const data = {
       items: [
         {
           title: "All Stats",
-          url: "#",
+          url: "/all-stats",
         },
         {
           title: "Trades",
-          url: "#",
+          url: "/trade-stats",
         },
         {
           title: "Deals",
-          url: "#",
+          url: "/trade-stats",
         },
       ],
     },
@@ -68,19 +63,19 @@ const data = {
       items: [
         {
           title: "Messaging",
-          url: "#",
+          url: "/message",
         },
         {
           title: "Notes",
-          url: "#",
+          url: "/notes",
         },
         {
           title: "Meetings",
-          url: "#",
+          url: "/meetings",
         },
         {
           title: "Calendar",
-          url: "#",
+          url: "/calendar",
         },
       ],
     },
@@ -182,15 +177,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
       <SidebarFooter>
-        <Card className="px-6">
+        <Card className="flex gap-2 p-6">
           <CardTitle className="font-bold text-md">Feedback</CardTitle>
-          <CardDescription className="text-sm ">
+          <CardDescription>
             Spend some time in providing feedback for our product, this will be
             very helpful
           </CardDescription>
-          <CardFooter className="flex flex-row w-full justify-center items-center">
-            <Button className="rounded-full">Provide Feedback</Button>
-          </CardFooter>
+          <Button className="rounded-full mt-5">Provide Feedback</Button>
         </Card>
       </SidebarFooter>
     </Sidebar>

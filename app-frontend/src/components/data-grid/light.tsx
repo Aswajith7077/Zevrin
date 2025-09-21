@@ -321,7 +321,7 @@ export default function TransactionsTable() {
         size: 100,
       },
     ],
-    []
+    [],
   );
 
   const table = useReactTable({
@@ -351,7 +351,7 @@ export default function TransactionsTable() {
         rowRounded: true,
       }}
     >
-      <div className="w-full space-y-2.5">
+      <div className="w-full space-y-2.5 gap-2">
         <DataGridContainer border={false}>
           <ScrollArea>
             <DataGridTable />

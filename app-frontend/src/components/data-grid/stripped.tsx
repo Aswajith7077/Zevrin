@@ -286,7 +286,7 @@ export default function TransactionsTable() {
         },
       },
     ],
-    []
+    [],
   );
 
   const table = useReactTable({

@@ -1,9 +1,122 @@
-import TransactionsTable from "@/components/data-grid/stripped";
+import TransactionsTable from "@/components/data-grid/light";
 import TransactionStats from "@/components/line-chart-2";
 import CreditStats from "@/components/line-chart-7";
 import StatisticCard1 from "@/components/statistic-card-1";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ProgressCircle } from "@/components/ui/progress";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ArrowDownNarrowWide, ArrowDownWideNarrow } from "lucide-react";
+import { useId, useState } from "react";
+
+type AllStatsFilterTabType = "All Stats" | "Trades" | "Deals";
+
+const AllStatsFilter = () => {
+  const id = useId();
+  const [filterTab, setFilterTab] =
+    useState<AllStatsFilterTabType>("All Stats");
+
+  return (
+    <section className="flex flex-row justify-between">
+      <div className="flex flex-row gap-3">
+        <Button
+          variant={filterTab === "All Stats" ? "primary" : "ghost"}
+          className={`text-base py-5 px-7 rounded-full }`}
+          onClick={() => setFilterTab("All Stats")}
+        >
+          All Stats
+        </Button>
+        <Button
+          variant={filterTab === "Trades" ? "primary" : "ghost"}
+          className="text-base py-5 px-7 rounded-full"
+          onClick={() => setFilterTab("Trades")}
+        >
+          Trades
+        </Button>
+        <Button
+          variant={filterTab === "Deals" ? "primary" : "ghost"}
+          className="text-base py-5 px-7 rounded-full"
+          onClick={() => setFilterTab("Deals")}
+        >
+          Deals
+        </Button>
+      </div>
+      <div className="flex flex-row gap-3">
+        <Select defaultValue="1">
+          <SelectTrigger
+            id={id}
+            className="bg-muted border-transparent shadow-none rounded-full md:min-w-[200px]"
+          >
+            <SelectValue placeholder="Select Column" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xl">
+            <SelectItem value="1">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Id</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="2">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Transaction Name</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="3">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Trader</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="4">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Dealer</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="5">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Status</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="6">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Worth</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="7">
+              <div className="flex flex-row gap-3 items-center">
+                <span>Signed Date</span>
+              </div>
+            </SelectItem>
+          </SelectContent>
+        </Select>
+        <Select defaultValue="1">
+          <SelectTrigger
+            id={id}
+            className="bg-muted border-transparent shadow-none rounded-full "
+          >
+            <SelectValue placeholder="Select Sorting Order" />
+          </SelectTrigger>
+          <SelectContent className="rounded-xl">
+            <SelectItem value="1">
+              <div className="flex flex-row gap-3">
+                <ArrowDownNarrowWide /> <span>Ascending</span>
+              </div>
+            </SelectItem>
+            <SelectItem value="2">
+              <div className="flex flex-row gap-3">
+                <ArrowDownWideNarrow /> <span>Descending</span>
+              </div>
+            </SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </section>
+  );
+};
 
 const AllStats = () => {
   return (
@@ -34,11 +147,10 @@ const AllStats = () => {
         <CreditStats />
         <TransactionStats />
       </div>
-      {/* <Card className="p-8"> */}
-      <div className="p-5">
+      <div className="flex flex-col py-5 gap-5 ">
+        <AllStatsFilter />
         <TransactionsTable />
       </div>
-      {/* </Card> */}
     </section>
   );
 };
