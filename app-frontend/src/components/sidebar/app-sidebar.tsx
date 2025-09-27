@@ -3,13 +3,13 @@
 import * as React from "react";
 import {
   Activity,
+  Book,
   ChartNoAxesColumn,
   Compass,
-  LifeBuoy,
   Link,
   Map,
+  MessageCircleQuestionMark,
   PieChart,
-  Send,
   Sparkles,
 } from "lucide-react";
 
@@ -120,14 +120,14 @@ const data = {
   ],
   navSecondary: [
     {
-      title: "Support",
+      title: "Documentation",
       url: "#",
-      icon: LifeBuoy,
+      icon: Book,
     },
     {
-      title: "Feedback",
+      title: "Help",
       url: "#",
-      icon: Send,
+      icon: MessageCircleQuestionMark,
     },
   ],
   projects: [

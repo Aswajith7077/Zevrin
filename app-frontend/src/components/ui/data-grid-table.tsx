@@ -97,7 +97,7 @@ function DataGridTableHeadRow<TData>({
     <tr
       key={headerGroup.id}
       className={cn(
-        "bg-muted/40",
+        "bg-muted/15 hover:bg-muted/40 text-black dark:text-white",
         props.tableLayout?.headerBorder && "[&>th]:border-b",
         props.tableLayout?.cellBorder && "[&_>:last-child]:border-e-0",
         props.tableLayout?.stripped && "bg-transparent",
@@ -151,7 +151,7 @@ function DataGridTableHeadRowCell<TData>({
         isLastLeftPinned ? "left" : isFirstRightPinned ? "right" : undefined
       }
       className={cn(
-        "relative h-10 text-left rtl:text-right align-middle font-normal text-secondary-foreground/80 [&:has([role=checkbox])]:pe-0",
+        "relative h-10 text-left rtl:text-right align-middle font-normal [&:has([role=checkbox])]:pe-0",
         headerCellSpacing,
         props.tableLayout?.cellBorder && "border-e",
         props.tableLayout?.columnsResizable &&

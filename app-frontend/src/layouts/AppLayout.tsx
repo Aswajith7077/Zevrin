@@ -15,8 +15,8 @@ const AppLayout = () => {
     <SidebarProvider>
       <div className="flex flex-1">
         <AppSidebar />
-        <SidebarInset className="bg-muted">
-          <header className="flex h-16 bg-white shrink-0 items-center gap-2">
+        <SidebarInset className="">
+          <header className="flex h-16 shrink-0 items-center gap-2">
             <div className="flex items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
               <Separator
@@ -25,8 +25,11 @@ const AppLayout = () => {
               />
               <InputWrapper className="flex flex-row w-full py-5 gap-3 items-center md:min-w-[400px] lg:min-w-[600px] rounded-full">
                 <Search />
-                <Input placeholder="Search Deals, Connections, AI prompts" />
-                <Kbd className="hidden md:flex  text-lg text-gray-500 px-4">
+                <Input
+                  placeholder="Search Deals, Connections, AI prompts"
+                  className="rounded-none"
+                />
+                <Kbd className="hidden md:flex  text-lg  px-4">
                   <Command /> +K
                 </Kbd>
               </InputWrapper>

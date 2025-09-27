@@ -51,11 +51,11 @@ const AllStatsFilter = () => {
         <Select defaultValue="1">
           <SelectTrigger
             id={id}
-            className="bg-muted border-transparent shadow-none rounded-full md:min-w-[200px]"
+            className="bg-accent border-transparent shadow-none md:min-w-[200px]"
           >
             <SelectValue placeholder="Select Column" />
           </SelectTrigger>
-          <SelectContent className="rounded-xl">
+          <SelectContent>
             <SelectItem value="1">
               <div className="flex flex-row gap-3 items-center">
                 <span>Id</span>
@@ -96,11 +96,11 @@ const AllStatsFilter = () => {
         <Select defaultValue="1">
           <SelectTrigger
             id={id}
-            className="bg-muted border-transparent shadow-none rounded-full "
+            className="bg-accent border-transparent shadow-none "
           >
             <SelectValue placeholder="Select Sorting Order" />
           </SelectTrigger>
-          <SelectContent className="rounded-xl">
+          <SelectContent>
             <SelectItem value="1">
               <div className="flex flex-row gap-3">
                 <ArrowDownNarrowWide /> <span>Ascending</span>
