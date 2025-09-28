@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Fragment } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useDataGrid } from "@/components/ui/data-grid";
+import { Checkbox } from "@/components/ui/shadcn-base/checkbox";
+import { useDataGrid } from "@/components/ui/data-grid/data-grid";
 import { flexRender } from "@tanstack/react-table";
 import type {
   Cell,

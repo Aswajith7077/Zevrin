@@ -1,17 +1,17 @@
 import TransactionsTable from "@/components/data-grid/light";
-import TransactionStats from "@/components/line-chart-2";
-import CreditStats from "@/components/line-chart-7";
+import TransactionStats from "@/components/charts/transactions-stats.chart";
+import CreditStats from "@/components/charts/credit-scores.chart";
 import StatisticCard1 from "@/components/statistic-card-1";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { ProgressCircle } from "@/components/ui/progress";
+import { Button } from "@/components/ui/shadcn-base/button";
+import { Card } from "@/components/ui/shadcn-base/card";
+import { ProgressCircle } from "@/components/ui/shadcn-base/progress";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/shadcn-base/select";
 import { ArrowDownNarrowWide, ArrowDownWideNarrow } from "lucide-react";
 import { useId, useState } from "react";
 

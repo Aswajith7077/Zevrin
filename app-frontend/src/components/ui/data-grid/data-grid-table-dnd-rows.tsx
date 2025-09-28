@@ -1,6 +1,6 @@
 import { useId, type CSSProperties } from "react";
-import { Button } from "@/components/ui/button";
-import { useDataGrid } from "@/components/ui/data-grid";
+import { Button } from "@/components/ui/shadcn-base/button";
+import { useDataGrid } from "@/components/ui/data-grid/data-grid";
 import {
   DataGridTableBase,
   DataGridTableBody,
@@ -14,7 +14,7 @@ import {
   DataGridTableHeadRowCell,
   DataGridTableHeadRowCellResize,
   DataGridTableRowSpacer,
-} from "@/components/ui/data-grid-table";
+} from "@/components/ui/data-grid/data-grid-table";
 import {
   closestCenter,
   DndContext,

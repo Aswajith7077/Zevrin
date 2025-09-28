@@ -1,18 +1,18 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/ui/shadcn-base/badge";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardToolbar,
-} from "@/components/ui/card";
+} from "@/components/ui/shadcn-base/card";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-} from "@/components/ui/select";
+} from "@/components/ui/shadcn-base/select";
 import { TrendingUp } from "lucide-react";
 import { useState } from "react";
 import {
@@ -136,7 +136,7 @@ export default function TransactionStats() {
     previousValue > 0 ? ((lastValue - previousValue) / previousValue) * 100 : 0;
 
   return (
-    <Card className="w-full ">
+    <Card className="w-full">
       <CardHeader className="border-0 min-h-auto pt-6 pb-4">
         <CardTitle className="text-2xl font-semibold">Transactions</CardTitle>
         <CardToolbar>

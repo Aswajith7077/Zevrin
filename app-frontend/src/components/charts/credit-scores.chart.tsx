@@ -1,13 +1,16 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/shadcn-base/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
   CardToolbar,
-} from "@/components/ui/card";
+} from "@/components/ui/shadcn-base/card";
 import { ChartContainer, ChartTooltip } from "@/components/ui/chart";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import {
+  ToggleGroup,
+  ToggleGroupItem,
+} from "@/components/ui/shadcn-base/toggle-group";
 import { ArrowDownRight, ArrowUpRight, Settings } from "lucide-react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
 import { cn } from "@/lib/utils";

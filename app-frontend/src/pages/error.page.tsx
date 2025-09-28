@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/shadcn-base/button";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
@@ -11,9 +12,11 @@ const ErrorPage = () => {
             "It seems that the page you are looking for does not exists or has been removed. Don't worry, let's get you back on track!"
           }
         </p>
-        <Button className="">
-          Back to Home <ArrowUpRight size={20} />
-        </Button>
+        <Link to="/stats">
+          <Button className="">
+            Back to Home <ArrowUpRight size={20} />
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col gap-10 w-1/2"></div>
     </section>

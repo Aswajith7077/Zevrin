@@ -1,14 +1,14 @@
 import type { ReactNode } from "react";
-import { Button } from "@/components/ui/button";
-import { useDataGrid } from "@/components/ui/data-grid";
+import { Button } from "@/components/ui/shadcn-base/button";
+import { useDataGrid } from "@/components/ui/data-grid/data-grid";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Skeleton } from "@/components/ui/skeleton";
+} from "@/components/ui/shadcn-base/select";
+import { Skeleton } from "@/components/ui/shadcn-base/skeleton";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 

@@ -7,7 +7,11 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/shadcn-base/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,7 +26,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/shadcn-base/sidebar";
 
 export function NavUser({
   user,

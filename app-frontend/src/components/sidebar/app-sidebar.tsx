@@ -24,10 +24,14 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { Button } from "../ui/button";
-import { appname } from "@/constants/app";
+} from "@/components/ui/shadcn-base/sidebar";
+import {
+  Card,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/shadcn-base/card";
+import { Button } from "../ui/shadcn-base/button";
+import { appname } from "@/constants/app.const";
 
 const data = {
   user: {
@@ -38,23 +42,9 @@ const data = {
   navMain: [
     {
       title: "Stats",
-      url: "#",
+      url: "/stats",
       icon: ChartNoAxesColumn,
       isActive: true,
-      items: [
-        {
-          title: "All Stats",
-          url: "/all-stats",
-        },
-        {
-          title: "Trades",
-          url: "/trade-stats",
-        },
-        {
-          title: "Deals",
-          url: "/trade-stats",
-        },
-      ],
     },
     {
       title: "Integrations",
@@ -63,19 +53,19 @@ const data = {
       items: [
         {
           title: "Messaging",
-          url: "/message",
+          url: "/integrations/messaging",
         },
         {
           title: "Notes",
-          url: "/notes",
+          url: "/integrations/notes",
         },
         {
           title: "Meetings",
-          url: "/meetings",
+          url: "/integrations/meetings",
         },
         {
           title: "Calendar",
-          url: "/calendar",
+          url: "/integrations/calendar",
         },
       ],
     },
@@ -133,7 +123,7 @@ const data = {
   projects: [
     {
       name: "Explore Deals",
-      url: "#",
+      url: "/explore-deals",
       icon: Compass,
     },
     {

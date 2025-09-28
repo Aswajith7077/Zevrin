@@ -3,11 +3,11 @@
 import { Command, Search, SidebarIcon } from "lucide-react";
 
 // import { SearchForm } from "@/components/search-form"
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { useSidebar } from "@/components/ui/sidebar";
-import { Input, InputWrapper } from "../ui/input";
-import { Kbd } from "../ui/kbd";
+import { Button } from "@/components/ui/shadcn-base/button";
+import { Separator } from "@/components/ui/shadcn-base/separator";
+import { useSidebar } from "@/components/ui/shadcn-base/sidebar";
+import { Input, InputWrapper } from "../ui/shadcn-base/input";
+import { Kbd } from "../ui/shadcn-base/kbd";
 
 export function SiteHeader() {
   const { toggleSidebar } = useSidebar();
@@ -24,7 +24,7 @@ export function SiteHeader() {
           <SidebarIcon />
         </Button>
         <Separator orientation="vertical" className="mr-2 h-4" />
-        <InputWrapper className="flex flex-row max-w-[100px] py-5 gap-3 items-center md:min-w-[500px] rounded-full">
+        <InputWrapper className="flex flex-row max-w-[100px] py-5 gap-3 items-center md:min-w-[500px] rounded-full bg-sidebar">
           <Search />
           <Input placeholder="Search Deals, Connections, AI prompts" />
           <Kbd className="text-lg text-gray-500 px-4">

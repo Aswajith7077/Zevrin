@@ -1,11 +1,11 @@
 import { AppSidebar } from "@/components/sidebar/app-sidebar";
-import { Input, InputWrapper } from "@/components/ui/input";
-import { Kbd } from "@/components/ui/kbd";
+import { Input, InputWrapper } from "@/components/ui/shadcn-base/input";
+import { Kbd } from "@/components/ui/shadcn-base/kbd";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/shadcn-base/sidebar";
 import { Separator } from "@radix-ui/react-separator";
 import { Command, Search } from "lucide-react";
 import { Outlet } from "react-router";

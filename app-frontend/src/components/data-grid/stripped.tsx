@@ -1,10 +1,17 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { DataGrid, DataGridContainer } from "@/components/ui/data-grid";
-import { DataGridPagination } from "@/components/ui/data-grid-pagination";
-import { DataGridTable } from "@/components/ui/data-grid-table";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/shadcn-base/avatar";
+import {
+  DataGrid,
+  DataGridContainer,
+} from "@/components/ui/data-grid/data-grid";
+import { DataGridPagination } from "@/components/ui/data-grid/data-grid-pagination";
+import { DataGridTable } from "@/components/ui/data-grid/data-grid-table";
+import { ScrollArea, ScrollBar } from "@/components/ui/shadcn-base/scroll-area";
 import {
   getCoreRowModel,
   getFilteredRowModel,

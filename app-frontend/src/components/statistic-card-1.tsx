@@ -1,33 +1,15 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/shadcn-base/badge";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-  CardToolbar,
-} from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  ArrowDown,
-  ArrowUp,
-  MoreHorizontal,
-  Pin,
-  Settings,
-  Share2,
-  Trash,
-  TriangleAlert,
-} from "lucide-react";
+} from "@/components/ui/shadcn-base/card";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 const stats = [
   {
-    title: "All Orders",
+    title: "Total Revenue",
     value: 122380,
     delta: 15.1,
     lastMonth: 105922,
@@ -74,51 +56,17 @@ function formatNumber(n: number) {
 
 export default function StatisticCard1() {
   return (
-    <div className="grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {stats.map((stat, index) => (
-        <Card key={index}>
+        <Card key={index} className="p-1">
           <CardHeader className="border-0">
-            <CardTitle className="text-muted-foreground text-sm font-medium">
+            <CardTitle className="text-muted-foreground text-base font-bold">
               {stat.title}
             </CardTitle>
-            <CardToolbar>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="dim"
-                    size="sm"
-                    mode="icon"
-                    className="-me-1.5"
-                  >
-                    <MoreHorizontal />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" side="bottom">
-                  <DropdownMenuItem>
-                    <Settings />
-                    Settings
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <TriangleAlert /> Add Alert
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Pin /> Pin to Dashboard
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Share2 /> Share
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem variant="destructive">
-                    <Trash />
-                    Remove
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </CardToolbar>
           </CardHeader>
           <CardContent className="space-y-2.5">
-            <div className="flex items-center gap-2.5">
-              <span className="text-2xl font-medium text-foreground tracking-tight">
+            <div className="flex items-center gap-2">
+              <span className="text-4xl font-medium text-foreground tracking-tight">
                 {stat.format
                   ? stat.format(stat.value)
                   : stat.prefix + formatNumber(stat.value) + stat.suffix}
@@ -127,7 +75,7 @@ export default function StatisticCard1() {
                 variant={stat.positive ? "success" : "destructive"}
                 appearance="light"
               >
-                {stat.delta > 0 ? <ArrowUp /> : <ArrowDown />}
+                {stat.delta > 0 ? <ArrowUpRight /> : <ArrowDownRight />}
                 {stat.delta}%
               </Badge>
             </div>
