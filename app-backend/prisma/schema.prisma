@@ -321,7 +321,7 @@ model Image {
   banner      Banner?
   subCategory SubCategory?
   deal        Deal?        @relation(fields: [dealId], references: [id])
-  dealId      String
+  dealId      String?
 }
 
 model Price {
