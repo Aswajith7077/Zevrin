@@ -2,22 +2,113 @@
   "name": "@app-microservices/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "style": "prettier --check . && eslint .",
+    "style:fix": "prettier --write . && eslint . --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "tsc -b",
+    "start": "node dist/main.js",
+    "generate-proto-types": "pnpx protoc --ts_proto_out=./types ./proto/*.proto --ts_proto_opt=nestJs=true"
+  },
+  "nx": {
+    "targets": {
+      "generate-proto-types": {
+        "cache": true,
+        "inputs": [
+          "{workspaceRoot}/proto/*.proto"
+        ]
+      },
+      "build": {
+        "dependsOn": [
+          "^build"
+        ],
+        "inputs": [
+          "production",
+          "{workspaceRoot}/libs/source/**",
+          "!{workspaceRoot}/libs/source/tests/**"
+        ]
+      },
+      "lint": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**",
+          "!{workspaceRoot}/libs/source/tests/**"
+        ]
+      },
+      "test": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      },
+      "style": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      },
+      "style:fix": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      },
+      "lint:fix": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      },
+      "format": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      },
+      "format:fix": {
+        "inputs": [
+          "default",
+          "{workspaceRoot}/libs/source/**"
+        ]
+      }
+    }
+  },
   "private": true,
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.0",
+    "@grpc/proto-loader": "^0.8.0",
+    "@nestjs/common": "^11.1.6",
+    "@nestjs/core": "^11.1.6",
+    "@nestjs/microservices": "^11.1.6",
+    "@nestjs/platform-express": "^11.1.6",
+    "axios": "^1.6.0",
+    "kafkajs": "^2.2.4",
+    "nx-cloud": "^19.1.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0",
+    "ts-proto": "^2.7.7"
+  },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@nestjs/schematics": "^11.0.0",
-    "@nestjs/testing": "^11.0.0",
-    "@nx/eslint": "21.5.3",
-    "@nx/eslint-plugin": "21.5.3",
-    "@nx/jest": "21.5.3",
-    "@nx/js": "21.5.3",
-    "@nx/nest": "21.5.3",
-    "@nx/node": "21.5.3",
-    "@nx/web": "21.5.3",
-    "@nx/webpack": "21.5.3",
+    "@nestjs/testing": "^11.1.6",
+    "@nx/eslint": "21.6.2",
+    "@nx/eslint-plugin": "21.6.2",
+    "@nx/jest": "21.6.2",
+    "@nx/js": "21.6.2",
+    "@nx/nest": "21.6.2",
+    "@nx/node": "21.6.2",
+    "@nx/web": "21.6.2",
+    "@nx/webpack": "21.6.2",
+    "@nx/workspace": "21.6.2",
     "@swc-node/register": "~1.9.1",
-    "@swc/core": "~1.5.7",
+    "@swc/cli": "~0.6.0",
+    "@swc/core": "~1.13.5",
     "@swc/helpers": "~0.5.11",
     "@swc/jest": "~0.2.38",
     "@types/jest": "^30.0.0",
@@ -27,7 +118,8 @@
     "jest": "^30.0.2",
     "jest-environment-node": "^30.0.2",
     "jest-util": "^30.0.2",
-    "nx": "21.5.3",
+    "jsonc-eslint-parser": "^2.1.0",
+    "nx": "21.6.2",
     "prettier": "^2.6.2",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
@@ -35,13 +127,5 @@
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "@nestjs/common": "^11.0.0",
-    "@nestjs/core": "^11.0.0",
-    "@nestjs/platform-express": "^11.0.0",
-    "axios": "^1.6.0",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "filesystem": {
+      "command": "node",
+      "args": [
+        "/home/aswajiths/Documents/servers/src/filesystem/dist/index.js"
+      ],
+      "workingDirectory": "/home/aswajiths/Documents/GitHub/Zevrin"
+    }
+  }
+}

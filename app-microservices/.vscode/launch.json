@@ -4,9 +4,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @app-microservices/api-gateway with Nx",
+      "name": "Debug api-gateway with Nx",
       "runtimeExecutable": "pnpm exec",
-      "runtimeArgs": ["nx", "serve", "@app-microservices/api-gateway"],
+      "runtimeArgs": ["nx", "serve", "api-gateway"],
       "env": {
         "NODE_OPTIONS": "--inspect=9229"
       },
@@ -22,9 +22,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Debug @app-microservices/deals with Nx",
+      "name": "Debug deals with Nx",
       "runtimeExecutable": "pnpm exec",
-      "runtimeArgs": ["nx", "serve", "@app-microservices/deals"],
+      "runtimeArgs": ["nx", "serve", "deals"],
       "env": {
         "NODE_OPTIONS": "--inspect=9230"
       },
@@ -34,6 +34,24 @@
       "sourceMaps": true,
       "outFiles": [
         "${workspaceFolder}/apps/deals/dist/**/*.(m|c|)js",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug deals-mutation with Nx",
+      "runtimeExecutable": "pnpm exec",
+      "runtimeArgs": ["nx", "serve", "deals-mutation"],
+      "env": {
+        "NODE_OPTIONS": "--inspect=9231"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "outFiles": [
+        "${workspaceFolder}/apps/api-gateway/deals-mutation/dist/**/*.(m|c|)js",
         "!**/node_modules/**"
       ]
     }

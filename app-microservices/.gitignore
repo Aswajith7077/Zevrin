@@ -4,6 +4,7 @@
 dist
 tmp
 out-tsc
+.env
 
 # dependencies
 node_modules
@@ -42,5 +43,3 @@ Thumbs.db
 .nx/workspace-data
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
-
-test-output

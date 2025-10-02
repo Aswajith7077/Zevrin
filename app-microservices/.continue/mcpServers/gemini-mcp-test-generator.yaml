@@ -1,0 +1,11 @@
+name: Gemini Test File Generator MCP Server
+version: 0.0.1
+schema: v1
+
+mcpServers:
+  - name: filesystem
+    command: node
+    args:
+      - /home/aswajiths/Documents/servers/src/filesystem/dist/index.js
+    env:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
