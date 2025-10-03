@@ -44,7 +44,9 @@
       "exclude": [
         "apps/api-gateway-e2e/**/*",
         "apps/deals-e2e/**/*",
-        "apps/api-gateway/deals-mutation-e2e/**/*"
+        "apps/api-gateway/deals-mutation-e2e/**/*",
+        "apps/notifications-e2e/**/*",
+        "apps/payments-e2e/**/*"
       ]
     }
   ],
