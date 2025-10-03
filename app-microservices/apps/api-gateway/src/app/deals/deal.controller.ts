@@ -47,12 +47,13 @@ export class DealController implements OnModuleInit {
 
   @Post('create')
   createDeal(@Body() deal: Deal) {
-    this.kafkaClient.emit('deal_created', {
+    this.kafkaClient.emit('deals_created', {
       id: deal.id,
       title: deal.title,
       description: deal.description,
       price: deal.price,
     });
+    console.log('[Deals-Service] Deal creation event emitted to Kafka', deal);
     return { message: 'Deal creation in process', deal: deal };
   }
 }
