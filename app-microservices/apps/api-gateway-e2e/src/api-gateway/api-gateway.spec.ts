@@ -14,7 +14,7 @@ describe('Deals Endpoints', () => {
     it('should return 400 if id is not a string', async () => {
       try {
         await axios.get('/deals/123');
-      } catch (error: any) {
+      } catch (error) {
         expect(error.response.status).toBe(400);
         return;
       }
@@ -36,7 +36,7 @@ describe('Deals Endpoints', () => {
     it('should return 400 if page is not a number', async () => {
       try {
         await axios.get('/deals/list?page=abc&pageSize=10');
-      } catch (error: any) {
+      } catch (error) {
         expect(error.response.status).toBe(400);
         return;
       }
@@ -46,7 +46,7 @@ describe('Deals Endpoints', () => {
     it('should return 400 if pageSize is not a number', async () => {
       try {
         await axios.get('/deals/list?page=1&pageSize=xyz');
-      } catch (error: any) {
+      } catch (error) {
         expect(error.response.status).toBe(400);
         return;
       }

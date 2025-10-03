@@ -1,6 +1,5 @@
 import * as request from 'supertest';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ApiGatewayModule } from './api-gateway.module';
 import { INestApplication } from '@nestjs/common';
 
 const BAD_REQUEST = 400;
@@ -8,10 +7,11 @@ const OK = 200;
 
 describe('Deals Endpoints', () => {
   let app: INestApplication;
+  let moduleFixture: TestingModule;
 
   beforeAll(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [ApiGatewayModule],
+    moduleFixture = await Test.createTestingModule({
+      // Remove the imports array
     }).compile();
 
     app = moduleFixture.createNestApplication();
