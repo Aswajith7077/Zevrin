@@ -13,7 +13,7 @@
     "test:watch": "jest --watch",
     "build": "tsc -b",
     "start": "node dist/main.js",
-    "generate-proto-types": "pnpx protoc -I=./proto --ts_proto_out=./types ./proto/**/*.proto --ts_proto_opt=nestJs=true"
+    "generate-proto-types": "pnpx protoc -I=./proto --ts_proto_out=./libs/proto/src --ts_proto_opt=nestJs=true ./proto/**/*.proto"
   },
   "nx": {
     "targets": {
@@ -84,6 +84,7 @@
     "@grpc/proto-loader": "^0.8.0",
     "@nestjs/common": "^11.1.6",
     "@nestjs/core": "^11.1.6",
+    "@nestjs/jwt": "^11.0.0",
     "@nestjs/microservices": "^11.1.6",
     "@nestjs/platform-express": "^11.1.6",
     "@prisma/client": "6.16.3",

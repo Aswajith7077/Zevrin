@@ -7,7 +7,7 @@ import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
-import { DEALS_PACKAGE_NAME } from '@proto/deals';
+import { DEALS_PACKAGE_NAME } from '@proto/deals/services';
 import { join } from 'path';
 
 async function bootstrap() {

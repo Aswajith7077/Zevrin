@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { DEALS_PACKAGE_NAME } from '@proto/deals';
+import { DEALS_PACKAGE_NAME } from '@proto/deals/services';
 import { join } from 'path';
 import { DealController } from './deals/deal.controller';
+import { AUTH_PACKAGE_NAME } from '@proto/auth/services';
 import { AuthController } from './auth/auth.controller';
-import { AUTH_PACKAGE_NAME } from '@proto/auth';
 
 @Module({
   imports: [

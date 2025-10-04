@@ -1,10 +1,8 @@
 import { Body, Controller, Inject, OnModuleInit, Post } from '@nestjs/common';
 import { ClientGrpc } from '@nestjs/microservices';
-import {
-  AUTH_PACKAGE_NAME,
-  AuthServiceClient,
-  LoginRequest,
-} from '@proto/auth';
+import { AUTH_PACKAGE_NAME, AuthServiceClient } from '@proto/auth/services';
+import { LoginRequest, LoginResponse } from '@proto/auth/messages/login';
+import { Observable } from 'rxjs';
 
 @Controller('auth')
 export class AuthController implements OnModuleInit {
@@ -17,7 +15,11 @@ export class AuthController implements OnModuleInit {
   }
 
   @Post('login')
-  async handleLogin(@Body() loginCredentials: LoginRequest) {
-    return this.authService.login(loginCredentials);
+  handleLogin(
+    @Body() loginCredentials: LoginRequest
+  ): Observable<LoginResponse> {
+    const result = this.authService.login(loginCredentials);
+    console.log('Login result:', result);
+    return result;
   }
 }
