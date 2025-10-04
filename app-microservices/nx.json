@@ -46,8 +46,7 @@
         "apps/deals-e2e/**/*",
         "apps/api-gateway/deals-mutation-e2e/**/*",
         "apps/notifications-e2e/**/*",
-        "apps/payments-e2e/**/*",
-        "apps/auth-e2e/**/*"
+        "apps/payments-e2e/**/*"
       ]
     }
   ],
@@ -56,7 +55,7 @@
       "options": {
         "assets": [
           {
-            "glob": "**/*.proto",
+            "glob": "*.proto",
             "input": "proto",
             "output": "proto"
           }

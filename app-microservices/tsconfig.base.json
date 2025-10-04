@@ -16,7 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@app-microservices/proto": ["libs/proto/src/index.ts"],
-      "@auth/*": ["apps/auth/src/app/*"],
       "@deals/*": ["apps/deals/src/app/*"],
       "@gateway/*": ["apps/api-gateway/src/app/*"],
       "@proto/*": ["types/proto/*"]
