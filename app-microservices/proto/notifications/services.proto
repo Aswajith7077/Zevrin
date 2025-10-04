@@ -1,0 +1,10 @@
+syntax = "proto3";
+package notifications;
+
+import "notifications/messages/get.proto";
+import "notifications/messages/send.proto";
+
+service NotificationService {
+  rpc SendNotification (SendNotificationRequest) returns (SendNotificationResponse);
+  rpc GetNotifications (GetNotificationsRequest) returns (GetNotificationsResponse);
+}

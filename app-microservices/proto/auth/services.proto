@@ -1,0 +1,16 @@
+syntax = "proto3";
+package auth;
+
+import "auth/messages/login.proto";
+import "auth/messages/refresh.proto";
+import "auth/messages/logout.proto";
+import "auth/messages/validate.proto";
+import "auth/messages/change_password.proto";
+
+service AuthService {
+  rpc Login (LoginRequest) returns (LoginResponse);
+    rpc RefreshToken (RefreshTokenRequest) returns (RefreshTokenResponse);
+    rpc Logout (LogoutRequest) returns (LogoutResponse);
+    rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
+    rpc ChangePassword (ChangePasswordRequest) returns (ChangePasswordResponse);
+}

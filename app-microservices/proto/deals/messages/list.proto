@@ -1,0 +1,14 @@
+syntax = "proto3";
+package deals;
+
+import "deals/messages/common.proto";
+
+message ListDealsRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+message ListDealsResponse {
+  repeated Deal deals = 1;
+  int32 total_count = 2;
+}
