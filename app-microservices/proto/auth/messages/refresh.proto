@@ -7,5 +7,6 @@ message RefreshTokenRequest {
 
 message RefreshTokenResponse {
   string accessToken = 1;
+  string refreshToken = 2;
   string message = 3;
 }

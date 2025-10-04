@@ -10,11 +10,11 @@ import {
 } from '@nestjs/common';
 import { ClientGrpc, ClientKafka } from '@nestjs/microservices';
 import {
+  Deal,
   DEALS_PACKAGE_NAME,
   DEALS_SERVICE_NAME,
   DealsServiceClient,
-} from '@proto/deals/services';
-import { Deal } from '@proto/deals/messages/common';
+} from '@proto/deals';
 
 @Controller('deal')
 export class DealController implements OnModuleInit {

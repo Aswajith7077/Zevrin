@@ -1,27 +1,24 @@
 import { Controller } from '@nestjs/common';
 import {
+  Deal,
   DealsServiceController,
   DealsServiceControllerMethods,
-} from '@proto/deals/services';
-import { GetDealRequest, GetDealResponse } from '@proto/deals/messages/get';
-import {
+  GetDealRequest,
   ListDealsRequest,
   ListDealsResponse,
-} from '@proto/deals/messages/list';
+} from '@proto/deals';
 import { Observable } from 'rxjs';
 
 @Controller('deals')
 @DealsServiceControllerMethods()
 export class DealsController implements DealsServiceController {
-  getDeal(request: GetDealRequest): GetDealResponse {
+  getDeal(request: GetDealRequest): Promise<Deal> | Observable<Deal> | Deal {
     return {
-      deal: {
-        id: request.id,
-        title: 'Sample Deal',
-        description: 'This is a sample deal description',
-        price: 99.99,
-        currency: 'USD',
-      },
+      id: request.id,
+      title: 'Sample Deal',
+      description: 'This is a sample deal description',
+      price: 99.99,
+      currency: 'USD',
     };
   }
   listDeals(

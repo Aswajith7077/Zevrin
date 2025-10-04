@@ -19,8 +19,7 @@
       "@auth/*": ["apps/auth/src/app/*"],
       "@deals/*": ["apps/deals/src/app/*"],
       "@gateway/*": ["apps/api-gateway/src/app/*"],
-      "@proto": ["libs/src/index.ts"],
-      "@proto/*": ["libs/proto/src/*"]
+      "@proto/*": ["types/proto/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

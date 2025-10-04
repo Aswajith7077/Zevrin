@@ -6,7 +6,7 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
-import { AUTH_PACKAGE_NAME } from '@proto/auth/services';
+import { AUTH_PACKAGE_NAME } from '@proto/auth';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 

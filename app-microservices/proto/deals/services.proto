@@ -1,10 +1,11 @@
 syntax = "proto3";
 package deals;
 
+import "deals/messages/common.proto";
 import "deals/messages/get.proto";
 import "deals/messages/list.proto";
 
 service DealsService {
-  rpc GetDeal (GetDealRequest) returns (GetDealResponse);
+  rpc GetDeal (GetDealRequest) returns (Deal);
   rpc ListDeals (ListDealsRequest) returns (ListDealsResponse);
 }
