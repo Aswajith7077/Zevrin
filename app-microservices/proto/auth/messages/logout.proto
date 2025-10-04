@@ -1,0 +1,9 @@
+syntax = "proto3";
+package auth;
+
+message LogoutRequest {
+  string refreshToken = 1;
+}
+message LogoutResponse {
+  string message = 1;
+}

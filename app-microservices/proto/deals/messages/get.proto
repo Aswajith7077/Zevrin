@@ -1,0 +1,14 @@
+syntax = "proto3";
+package deals;
+
+
+import "deals/messages/common.proto";
+
+message GetDealRequest {
+  string id = 1;
+}
+
+message GetDealResponse {
+  Deal deal = 1;
+}
+

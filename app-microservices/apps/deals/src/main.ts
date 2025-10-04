@@ -39,7 +39,7 @@ async function bootstrap() {
   );
 
   await Promise.all([app.listen(), kafkaApp.listen()]);
-  Logger.log(`🚀 Application is running on gRPC connection`);
+  Logger.log(`🚀[Deals-Service] Application is running on gRPC connection`);
 }
 
 bootstrap();

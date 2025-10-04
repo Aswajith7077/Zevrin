@@ -5,6 +5,8 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { DEALS_PACKAGE_NAME } from '@proto/deals';
 import { join } from 'path';
 import { DealController } from './deals/deal.controller';
+import { AuthController } from './auth/auth.controller';
+import { AUTH_PACKAGE_NAME } from '@proto/auth';
 
 @Module({
   imports: [
@@ -18,6 +20,14 @@ import { DealController } from './deals/deal.controller';
         },
       },
       {
+        name: AUTH_PACKAGE_NAME,
+        transport: Transport.GRPC,
+        options: {
+          package: AUTH_PACKAGE_NAME,
+          protoPath: join(__dirname, 'proto/auth.proto'),
+        },
+      },
+      {
         name: 'KAFKA_SERVICE',
         transport: Transport.KAFKA,
         options: {
@@ -28,7 +38,7 @@ import { DealController } from './deals/deal.controller';
       },
     ]),
   ],
-  controllers: [AppController, DealController],
+  controllers: [AppController, DealController, AuthController],
   providers: [AppService],
 })
 export class AppModule {}

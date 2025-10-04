@@ -1,0 +1,22 @@
+syntax = "proto3";
+package notifications;
+
+enum NotificationType {
+    INFO = 0;
+    WARNING = 1;
+    ALERT = 2;
+    PROMOTION = 3;
+}
+
+enum NotificationMedium{
+    EMAIL = 0;
+    SMS = 1;
+    PUSH = 2;
+    IN_APP = 3;
+}
+
+enum NotificationStatus {
+    UNREAD = 0;
+    READ = 1;
+    ARCHIVED = 2;
+}

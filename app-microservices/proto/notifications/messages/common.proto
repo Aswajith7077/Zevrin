@@ -1,0 +1,15 @@
+syntax = "proto3";
+package notifications;
+
+import "notifications/enums.proto";
+import "google/protobuf/timestamp.proto";
+
+message Notification {
+  string id = 1;
+  string userId = 2;
+  optional string message_text = 3;
+  NotificationType type = 4; // e.g., "email", "sms", "push"
+  NotificationMedium medium = 5;
+  NotificationStatus status = 6;
+  google.protobuf.Timestamp timestamp = 7; // Unix timestamp
+}
