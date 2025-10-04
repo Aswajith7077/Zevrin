@@ -2,13 +2,23 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.7
 //   protoc               v6.32.1
-// source: proto/auth.proto
+// source: auth.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 
 export const protobufPackage = 'auth';
+
+export interface ChangePasswordRequest {
+  username: string;
+  oldPassword: string;
+  newPassword: string;
+}
+
+export interface ChangePasswordResponse {
+  message: string;
+}
 
 export interface LoginRequest {
   username: string;
@@ -21,21 +31,90 @@ export interface LoginResponse {
   message: string;
 }
 
+export interface LogoutRequest {
+  refreshToken: string;
+}
+
+export interface LogoutResponse {
+  message: string;
+}
+
+export interface RefreshTokenRequest {
+  refreshToken: string;
+}
+
+export interface RefreshTokenResponse {
+  accessToken: string;
+  message: string;
+}
+
+export interface ValidateTokenRequest {
+  accessToken: string;
+}
+
+export interface ValidateTokenResponse {
+  isValid: boolean;
+  message: string;
+}
+
 export const AUTH_PACKAGE_NAME = 'auth';
 
 export interface AuthServiceClient {
   login(request: LoginRequest): Observable<LoginResponse>;
+
+  refreshToken(request: RefreshTokenRequest): Observable<RefreshTokenResponse>;
+
+  logout(request: LogoutRequest): Observable<LogoutResponse>;
+
+  validateToken(
+    request: ValidateTokenRequest
+  ): Observable<ValidateTokenResponse>;
+
+  changePassword(
+    request: ChangePasswordRequest
+  ): Observable<ChangePasswordResponse>;
 }
 
 export interface AuthServiceController {
   login(
     request: LoginRequest
   ): Promise<LoginResponse> | Observable<LoginResponse> | LoginResponse;
+
+  refreshToken(
+    request: RefreshTokenRequest
+  ):
+    | Promise<RefreshTokenResponse>
+    | Observable<RefreshTokenResponse>
+    | RefreshTokenResponse;
+
+  logout(
+    request: LogoutRequest
+  ): Promise<LogoutResponse> | Observable<LogoutResponse> | LogoutResponse;
+
+  validateToken(
+    request: ValidateTokenRequest
+  ):
+    | Promise<ValidateTokenResponse>
+    | Observable<ValidateTokenResponse>
+    | ValidateTokenResponse;
+
+  changePassword(
+    request: ChangePasswordRequest
+  ):
+    | Promise<ChangePasswordResponse>
+    | Observable<ChangePasswordResponse>
+    | ChangePasswordResponse;
 }
 
 export function AuthServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods: string[] = ['login'];
+    const grpcMethods: string[] = [
+      'login',
+      'refreshToken',
+      'logout',
+      'validateToken',
+      'changePassword',
+    ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

@@ -11,6 +11,7 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 
 async function bootstrap() {
+  const url = process.env.AUTH_URL || 'localhost:5001';
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
@@ -18,6 +19,7 @@ async function bootstrap() {
       options: {
         package: AUTH_PACKAGE_NAME,
         protoPath: join(__dirname, 'proto/auth.proto'),
+        url: url,
       },
     }
   );

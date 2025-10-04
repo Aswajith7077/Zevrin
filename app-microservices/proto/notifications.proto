@@ -1,0 +1,64 @@
+syntax = "proto3";
+package notifications;
+
+import "google/protobuf/timestamp.proto";
+
+service NotificationService {
+  rpc SendNotification (SendNotificationRequest) returns (SendNotificationResponse);
+  rpc GetNotifications (GetNotificationsRequest) returns (GetNotificationsResponse);
+}
+
+enum NotificationType {
+    INFO = 0;
+    WARNING = 1;
+    ALERT = 2;
+    PROMOTION = 3;
+}
+
+enum NotificationMedium{
+    EMAIL = 0;
+    SMS = 1;
+    PUSH = 2;
+    IN_APP = 3;
+}
+
+enum NotificationStatus {
+    UNREAD = 0;
+    READ = 1;
+    ARCHIVED = 2;
+}
+
+message SendNotificationRequest {
+  string userId = 1;
+  string message = 2;
+  NotificationType type = 3;
+  NotificationMedium medium = 4; // e.g., "email", "sms", "push"
+}
+message SendNotificationResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message GetNotificationsRequest {
+  string userId = 1;
+  NotificationStatus status = 2; // e.g., "unread", "read", "all"
+  NotificationType type = 3; // e.g., "email", "sms", "push"
+  NotificationMedium medium = 4; // e.g., "email", "sms", "
+  int32 limit = 5; // number of notifications to retrieve
+  int32 offset = 6; // pagination offset
+}
+
+message GetNotificationsResponse {
+  repeated Notification notifications = 1;
+  int32 total = 2; // total number of notifications for the user
+}
+
+message Notification {
+  string id = 1;
+  string userId = 2;
+  optional string message_text = 3;
+  NotificationType type = 4; // e.g., "email", "sms", "push"
+  NotificationMedium medium = 5;
+  NotificationStatus status = 6;
+  google.protobuf.Timestamp timestamp = 7; // Unix timestamp
+}

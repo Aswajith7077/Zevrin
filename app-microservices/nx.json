@@ -56,7 +56,7 @@
       "options": {
         "assets": [
           {
-            "glob": "**/*.proto",
+            "glob": "*.proto",
             "input": "proto",
             "output": "proto"
           }

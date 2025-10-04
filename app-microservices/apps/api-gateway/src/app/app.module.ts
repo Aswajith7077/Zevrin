@@ -17,6 +17,7 @@ import { AUTH_PACKAGE_NAME } from '@proto/auth';
         options: {
           package: DEALS_PACKAGE_NAME,
           protoPath: join(__dirname, 'proto/deals.proto'),
+          url: 'localhost:5002',
         },
       },
       {
@@ -25,6 +26,7 @@ import { AUTH_PACKAGE_NAME } from '@proto/auth';
         options: {
           package: AUTH_PACKAGE_NAME,
           protoPath: join(__dirname, 'proto/auth.proto'),
+          url: 'localhost:5001',
         },
       },
       {

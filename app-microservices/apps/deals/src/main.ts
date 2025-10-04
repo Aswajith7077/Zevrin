@@ -11,6 +11,7 @@ import { DEALS_PACKAGE_NAME } from '@proto/deals';
 import { join } from 'path';
 
 async function bootstrap() {
+  const url = process.env.AUTH_URL || 'localhost:5002';
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
@@ -18,6 +19,7 @@ async function bootstrap() {
       options: {
         package: DEALS_PACKAGE_NAME,
         protoPath: join(__dirname, 'proto/deals.proto'),
+        url: url,
       },
     }
   );

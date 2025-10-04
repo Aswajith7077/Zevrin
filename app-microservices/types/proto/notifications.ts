@@ -2,19 +2,44 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.7
 //   protoc               v6.32.1
-// source: proto/notifications.proto
+// source: notifications.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
+import { Timestamp } from './google/protobuf/timestamp';
 
 export const protobufPackage = 'notifications';
+
+export enum NotificationType {
+  INFO = 0,
+  WARNING = 1,
+  ALERT = 2,
+  PROMOTION = 3,
+  UNRECOGNIZED = -1,
+}
+
+export enum NotificationMedium {
+  EMAIL = 0,
+  SMS = 1,
+  PUSH = 2,
+  IN_APP = 3,
+  UNRECOGNIZED = -1,
+}
+
+export enum NotificationStatus {
+  UNREAD = 0,
+  READ = 1,
+  ARCHIVED = 2,
+  UNRECOGNIZED = -1,
+}
 
 export interface SendNotificationRequest {
   userId: string;
   message: string;
+  type: NotificationType;
   /** e.g., "email", "sms", "push" */
-  type: string;
+  medium: NotificationMedium;
 }
 
 export interface SendNotificationResponse {
@@ -24,28 +49,34 @@ export interface SendNotificationResponse {
 
 export interface GetNotificationsRequest {
   userId: string;
+  /** e.g., "unread", "read", "all" */
+  status: NotificationStatus;
+  /** e.g., "email", "sms", "push" */
+  type: NotificationType;
+  /** e.g., "email", "sms", " */
+  medium: NotificationMedium;
   /** number of notifications to retrieve */
   limit: number;
   /** pagination offset */
   offset: number;
 }
 
-export interface Notification {
-  id: string;
-  userId: string;
-  message: string;
-  /** e.g., "email", "sms", "push" */
-  type: string;
-  /** Unix timestamp */
-  timestamp: number;
-  /** whether the notification has been read */
-  read: boolean;
-}
-
 export interface GetNotificationsResponse {
   notifications: Notification[];
   /** total number of notifications for the user */
   total: number;
+}
+
+export interface Notification {
+  id: string;
+  userId: string;
+  messageText?: string | undefined;
+  /** e.g., "email", "sms", "push" */
+  type: NotificationType;
+  medium: NotificationMedium;
+  status: NotificationStatus;
+  /** Unix timestamp */
+  timestamp: Timestamp | undefined;
 }
 
 export const NOTIFICATIONS_PACKAGE_NAME = 'notifications';

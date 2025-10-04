@@ -2,7 +2,7 @@
 // versions:
 //   protoc-gen-ts_proto  v2.7.7
 //   protoc               v6.32.1
-// source: proto/deals.proto
+// source: deals.proto
 
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
@@ -22,6 +22,10 @@ export interface GetDealRequest {
   id: string;
 }
 
+export interface GetDealResponse {
+  deal: Deal | undefined;
+}
+
 export interface ListDealsRequest {
   page: number;
   pageSize: number;
@@ -35,13 +39,15 @@ export interface ListDealsResponse {
 export const DEALS_PACKAGE_NAME = 'deals';
 
 export interface DealsServiceClient {
-  getDeal(request: GetDealRequest): Observable<Deal>;
+  getDeal(request: GetDealRequest): Observable<GetDealResponse>;
 
   listDeals(request: ListDealsRequest): Observable<ListDealsResponse>;
 }
 
 export interface DealsServiceController {
-  getDeal(request: GetDealRequest): Promise<Deal> | Observable<Deal> | Deal;
+  getDeal(
+    request: GetDealRequest
+  ): Promise<GetDealResponse> | Observable<GetDealResponse> | GetDealResponse;
 
   listDeals(
     request: ListDealsRequest
