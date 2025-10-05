@@ -84,6 +84,7 @@
     "@grpc/proto-loader": "^0.8.0",
     "@nestjs/common": "^11.1.6",
     "@nestjs/core": "^11.1.6",
+    "@nestjs/jwt": "^11.0.0",
     "@nestjs/microservices": "^11.1.6",
     "@nestjs/platform-express": "^11.1.6",
     "@prisma/client": "6.16.3",

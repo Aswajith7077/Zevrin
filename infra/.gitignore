@@ -1,0 +1,11 @@
+# PostgreSQL data
+**/postgres/data/
+
+# MongoDB data
+**/mongo/data/
+
+# Kafka data (if any local data dirs)
+**/kafka/data/
+
+# Cassandra data
+**/cassandra-data/
