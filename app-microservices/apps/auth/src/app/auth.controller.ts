@@ -23,7 +23,7 @@ export class AuthController implements AuthServiceController {
     // Implement your login logic here
     return this.appService.login(request);
   }
-  
+
   async refreshToken(
     request: RefreshTokenRequest
   ): Promise<RefreshTokenResponse> {
